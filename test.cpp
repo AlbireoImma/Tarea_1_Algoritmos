@@ -8,6 +8,8 @@
 
 main(int argc, char const *argv[])
 {
-    /* code */
+    char string[] = "CDAB";
+    secreto test = secreto(string);
+    test.calcular(10);
     return 0;
 }
