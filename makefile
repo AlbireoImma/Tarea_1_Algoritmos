@@ -1,4 +1,4 @@
 all:
-	g++ test.cpp -o test
+	g++ src/test.cpp -o test
 run:
 	./test < input.txt
