@@ -1,0 +1,4 @@
+#Para no guardar el EXEC
+test
+#los pdf
+*.pdf 
