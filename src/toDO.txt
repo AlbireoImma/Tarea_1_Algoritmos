@@ -1,0 +1,2 @@
+Funcion SWAP(string, int, int) -> cambie la posicion de dos caracteres.
+Funcion Iterar() -> que haga swap con todo el string
