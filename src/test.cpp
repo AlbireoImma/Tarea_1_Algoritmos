@@ -51,6 +51,17 @@ long unsigned int Rango::newRango(long unsigned int nivel, long unsigned int num
     segmento = largo/nivel;
     multiplo = (numero - inicio) / segmento; //REVISAR
     
+    /**
+    int n = 0;
+    multiplo = 1;
+    while (numero >segmento*multiplo{
+        multiplo += 1;
+        n++;
+    }
+    partir del inicio en 0
+    **/
+
+ 
     inicio = inicio + segmento*multiplo;
     largo = segmento;
     return multiplo;
