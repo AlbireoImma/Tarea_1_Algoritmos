@@ -4,5 +4,7 @@ main
 # cosas varias
 *.pdf
 validation.tar.gz
-# el .vscode
+mi_output.txt
+# carpetas
 .vscode/
+validation/

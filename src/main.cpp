@@ -15,7 +15,7 @@ void backtracking(string palabra, string nuevo, Rango rango, long unsigned int p
         cout << nuevo << endl;
     }
     else{
-        long unsigned int pos = rango.newRango(nivel, posicion);
+        long long unsigned int pos = rango.newRango(nivel, posicion);
         // cout << pos << endl;
         char caracter = palabra.at(nivel - 1);
         // cout << caracter << endl;
@@ -26,7 +26,7 @@ void backtracking(string palabra, string nuevo, Rango rango, long unsigned int p
     }
 }
 
-void previo(string palabra, long unsigned int numero){
+void previo(string palabra, long long unsigned int numero){
     Rango inicial = Rango(1, factorial(palabra.size()));
     string combinado;
     backtracking(palabra, combinado, inicial, numero, 1);
