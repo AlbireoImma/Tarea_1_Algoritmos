@@ -2,7 +2,7 @@
 Cifrado de mensajes de dos vías mediante C++
 
 
-###Integrantes:
+### Integrantes:
 
 - Francisco Abarca  201673552-6 <br/>
 - Sebastián Godinez 201673520-8 <br/>
