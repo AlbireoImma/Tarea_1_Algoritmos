@@ -1,4 +1,7 @@
 #Para no guardar el EXEC
 test
+main
 #los pdf
-*.pdf 
+*.pdf
+# el .vscode
+.vscode/
