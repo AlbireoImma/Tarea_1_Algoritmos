@@ -1,11 +1,11 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
-#include "test.cpp"
+#include "test.h"
 
 using namespace std;
 
-string backtracking(string palabra, string nuevo, Rango rango, long intposicion, long intnivel){
+string backtracking(string palabra, string nuevo, Rango rango, long int posicion, long int nivel){
     if(nivel > palabra.size()){
         return nuevo;
     }
@@ -15,8 +15,8 @@ string backtracking(string palabra, string nuevo, Rango rango, long intposicion,
     }
 }
 
-string previo(string palabra, long intnumero){
-    Rango inicial = Rango(1, palabra.size());
+string previo(string palabra, long int numero){
+    Rango inicial = Rango(1, factorial(palabra.size()));
     string combinado;
     return backtracking(palabra, combinado, inicial, numero, 1);
 }
