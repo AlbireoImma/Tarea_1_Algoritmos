@@ -16,7 +16,7 @@ class Rango{
     void setInicio(long unsigned int i);
     void setLargo(long unsigned int l);
     void print();
-    long unsigned int newRango(long unsigned int nivel, long unsigned int num);
+    int newRango(int nivel, int num);
 };
 Rango::Rango(){
     inicio = 0;
@@ -45,46 +45,51 @@ void Rango::print(){
     cout << "Inicio: " << inicio << " ,Largo: " << largo << endl;
 }
 
-long unsigned int Rango::newRango(long unsigned int nivel, long unsigned int numero){
-    long unsigned int segmento;
-    long unsigned int multiplo;
+int Rango::newRango(int nivel, int numero){
+    int segmento;
+    int multiplo;
     segmento = largo/nivel;
-    multiplo = (numero - inicio) / segmento; //REVISAR
-    
-    /**
-    int n = 0;
-    multiplo = 1;
-    while (numero >segmento*multiplo{
-        multiplo += 1;
-        n++;
-    }
-    partir del inicio en 0
-    **/
-
- 
-    inicio = inicio + segmento*multiplo;
     largo = segmento;
-    return multiplo;
-}
 
-long unsigned int factorial(long unsigned int x){
-    return (x == 1 ? x : x * factorial(x - 1));
-}
 
-int main(int argc, char const *argv[])
-{
-    Rango prueba;
-    prueba = Rango(1, factorial(26));
-    long unsigned int guardar;
+
     
-    for(int i = 1; i < 27; i++)
-    {
-        cout << i << endl;
-        guardar = prueba.newRango(i, 165432);
-        printf("posicion %lu\n", guardar);
-        prueba.print();
+    
+    int n;
+    n = 0;
+    
+
+    while (true){
+        if (numero <= inicio + segmento -1){
+            break;
+        }
+        else {
+            n++;
+            inicio = inicio + segmento;
+            //cout << inicio << endl;
+            break;
+        }
     }
     
-    prueba.print();
-    return 0;
+    return n;
+
 }
+
+
+// int main(int argc, char const *argv[])
+// {
+//     Rango prueba;
+//     prueba = Rango(1, factorial(26));
+//     long unsigned int guardar;
+    
+//     for(int i = 1; i < 27; i++)
+//     {
+//         cout << i << endl;
+//         guardar = prueba.newRango(i, 165432);
+//         printf("posicion %lu\n", guardar);
+//         prueba.print();
+//     }
+    
+//     prueba.print();
+//     return 0;
+// }
