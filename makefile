@@ -1,5 +1,5 @@
 all:
-	g++ src/main.cpp -o main
+	g++ src/main.cpp -o main -Wall
 run:
 	./main < input.txt > mi_output.txt
 runsmall:
