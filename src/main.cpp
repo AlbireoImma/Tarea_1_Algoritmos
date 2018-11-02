@@ -15,7 +15,7 @@ void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
     lDummy = dummy.size();
 
     // inserto la ultima letra
-    if(largo == dummy.size()) {
+    if(largo == (int)dummy.size()) {
         act ++;
         if (act == combinacion) { // si estoy en la combinacion que quiero, termino
             cout << dummy << endl;
@@ -36,7 +36,7 @@ void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
 }
 
 void permutar( string palabra, int combinacion){
-    int i = 0;
+    // int i = 0;
     string dummy;
     permutarHelp(palabra,dummy,0, combinacion);
     return;
