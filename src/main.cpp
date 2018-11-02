@@ -32,7 +32,7 @@ void previo(string palabra, long unsigned int numero){
     backtracking(palabra, combinado, inicial, numero, 1);
     // cout << combinado << endl;
 }
-int act;
+int act; // contador global para las combinaciones
 void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
     int i, largo, lDummy;
     string helper;
@@ -56,7 +56,7 @@ void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
 
         // }
         //inserta las letras
-        for(i=0; i < lDummy +1 && act != combinacion; i++){
+        for(i=0; i < lDummy +1 && act != combinacion; i++){ // con la condicion de act termino todo
             dummy.insert(i,1,palabra.at(indicador));
             //llamado recursivo
             permutarHelp (palabra, dummy, indicador +1, combinacion);
@@ -81,7 +81,7 @@ int main(int argc, char const *argv[]){
     {
         cin >> palabra;
         cin >> largo;
-        act = 0;
+        act = 0; // contador de combinaciones
         permutar(palabra, largo);
     }
     return 0;

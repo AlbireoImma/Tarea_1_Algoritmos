@@ -1,7 +1,8 @@
 #Para no guardar el EXEC
 test
 main
-#los pdf
+# cosas varias
 *.pdf
+validation.tar.gz
 # el .vscode
 .vscode/
