@@ -7,15 +7,16 @@
 using namespace std;
 
 // contador global para las combinaciones
-int act; 
-void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
+unsigned long long int act;
+ 
+void permutarHelp(string palabra, string dummy, int indicador, unsigned long long int combinacion){
     int i, largo, lDummy;
     string helper;
     largo = palabra.size();
     lDummy = dummy.size();
 
     // inserto la ultima letra
-    if(largo == (int)dummy.size()) {
+    if(largo == lDummy) {
         act ++;
         if (act == combinacion) { // si estoy en la combinacion que quiero, termino
             cout << dummy << endl;
@@ -26,8 +27,8 @@ void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
     else {
         helper = dummy;
         //inserta las letras
-        for(i=0; i < lDummy +1 && act != combinacion; i++){ // con la condicion de act termino todo
-            dummy.insert(i,1,palabra.at(indicador));
+        for(i=0; i < lDummy + 1 && act != combinacion; i++){ // con la condicion de act termino todo
+            dummy.insert(i, 1, palabra.at(indicador));
             //llamado recursivo
             permutarHelp (palabra, dummy, indicador +1, combinacion);
             dummy = helper;
@@ -35,19 +36,19 @@ void permutarHelp(string palabra, string dummy, int indicador, int combinacion){
     }
 }
 
-void permutar( string palabra, int combinacion){
+void permutar( string palabra, unsigned long long int  combinacion){
     // int i = 0;
     string dummy;
-    permutarHelp(palabra,dummy,0, combinacion);
+    permutarHelp(palabra, dummy, 0, combinacion);
     return;
 }
 
 int main(int argc, char const *argv[]){
     char *palabra = new char[32];
-    long unsigned int total, largo;
+    unsigned long long int total, largo, i;
 
     cin >> total;
-    for(long unsigned int i = 0; i < total; i++)
+    for(i = 0; i < total; i++)
     {
         cin >> palabra;
         cin >> largo;
