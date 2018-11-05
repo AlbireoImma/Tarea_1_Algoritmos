@@ -1,13 +1,25 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
-#include <math.h>
-
+#include <limits.h>
 
 using namespace std;
 
 // contador global para las combinaciones
 unsigned long long int act; 
+
+unsigned long long int factorial_parte(unsigned long long int x, int t){
+    unsigned long long int total = x;
+    
+    for(int i = 1; i < t; i++){
+        if (x-i != 0 && (ULLONG_MAX / x-i) < total) {
+                return 0;
+        }
+        total = total * (x-i);
+    }
+    return total;
+}
+
 void permutarHelp(string palabra, string dummy, int indicador, unsigned long long int combinacion){
     int largo, lDummy;
     unsigned long long int combinaciones; // combinaciones que posiblemente salte
@@ -28,7 +40,11 @@ void permutarHelp(string palabra, string dummy, int indicador, unsigned long lon
     else {
         helper = dummy; // para volver atras
         // podar una parte:
-        combinaciones = pow(largo, largo - indicador);
+        // cout << "dummy: " << dummy << "; Nivel: " << indicador << endl;
+        // cout << "largo: " << largo << "; indicador: " << indicador << "; nivel: " << largo - indicador << endl;
+        combinaciones = factorial_parte(largo, largo - indicador);
+        // cout << "combinaciones: " << combinaciones << endl;
+        // cout << "suma: " << act + combinaciones << endl;
         if(act + combinaciones > 0 && act + combinaciones != act){
             if(act + combinaciones >= combinacion){ // si lo que busco esta en este largo de combinaciones entro
                 //inserta las letras
