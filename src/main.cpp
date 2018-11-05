@@ -7,7 +7,7 @@ using namespace std;
 
 // contador global para las combinaciones
 unsigned long long int act; 
-
+// calculo el factorial hasta t, es decir factorial(x)/factorial(t)
 unsigned long long int factorial_parte(unsigned long long int x, int t){
     unsigned long long int total = x;
     
@@ -22,7 +22,7 @@ unsigned long long int factorial_parte(unsigned long long int x, int t){
 
 void permutarHelp(string palabra, string dummy, int indicador, unsigned long long int combinacion){
     int largo, lDummy;
-    unsigned long long int combinaciones; // combinaciones que posiblemente salte
+    unsigned long long int combinaciones, suma; // combinaciones que posiblemente salte
     string helper;
     largo = palabra.size();
     lDummy = dummy.size();
@@ -40,13 +40,10 @@ void permutarHelp(string palabra, string dummy, int indicador, unsigned long lon
     else {
         helper = dummy; // para volver atras
         // podar una parte:
-        // cout << "dummy: " << dummy << "; Nivel: " << indicador << endl;
-        // cout << "largo: " << largo << "; indicador: " << indicador << "; nivel: " << largo - indicador << endl;
         combinaciones = factorial_parte(largo, largo - indicador);
-        // cout << "combinaciones: " << combinaciones << endl;
-        // cout << "suma: " << act + combinaciones << endl;
-        if(act + combinaciones > 0 && act + combinaciones != act){
-            if(act + combinaciones >= combinacion){ // si lo que busco esta en este largo de combinaciones entro
+        suma = act + combinaciones;
+        if(suma != act){
+            if(suma >= combinacion){ // si lo que busco esta en este largo de combinaciones entro
                 //inserta las letras
                 for(int i = 0; i < lDummy +1 && act != combinacion; i++){ // con la condicion de act termino todo
                     dummy.insert(i, 1, palabra.at(indicador)); // tomo la letra que corresponda
@@ -57,7 +54,7 @@ void permutarHelp(string palabra, string dummy, int indicador, unsigned long lon
                     dummy = helper;
                 }
             } else{
-                act += combinaciones;
+                act = suma;
                 return ; // vuelvo a quien me llamo y sigo buscando
             }
         }else{
